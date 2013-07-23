@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 
 <!-- Jesse James -->
@@ -157,4 +158,164 @@
 		<script type="text/javascript" src="js/json.js"></script>
 		<script type="text/javascript" src="js/Main.js"></script>
     </body>
+=======
+<!DOCTYPE html>
+
+<!-- Jesse James -->
+<!-- 3-18-2013 -->
+<!-- MiU Project 3 1303 -->
+
+<html>
+	<head>
+    	<meta charset="utf-8" />
+    	<meta name="description" content="Video game review welcome page" />
+    	<meta name="robots" content="noindex, nofollow" />
+    	<meta name="viewport" content="user-scalable=no, width=device-width" />
+    	<meta name="viewport" content="target-densitydpi=device-dpi" />
+    	<meta name="HandheldFriendly" content="True" />
+    	<meta name="MobileOpimized" content="320" />
+    	<title>Video Game Review's</title>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" />
+		<link rel="stylesheet" href="css/AVFDemo.css" />
+    </head>
+    <body>
+    	<div data-role="page" id="home" data-theme="a">
+        	<div data-role="header" data-position="fixed">
+            	<h1>Advanced Visual Framwork API Deployment</h1>
+             </div>
+             <div data-role="content">
+             	<p> Welcome to my Advanced Visual Frameworks Application.  Feel free to browse around and enjoy all that my app has to offer.  Utilize the Navigation bar for ease of use!</p>
+                <a href="#instagram"><img style="height:256px; width:256px" src="img/instagram-icon.png" /></a>
+                <a href="#flickr"><img style="height:256px; width:256px" src="img/flickr-icon.png" /></a>
+                <a href="#camera"><img style="height:256px; width:256px" src="img/iOS-camera-icon.png" /></a>
+                <a href="#research"><img style="height:256px; width:256px" src="img/pen_paper_icon.PNG" /></a>
+             	<div data-role="collapsible-set" data-theme="a">
+             		<div data-content-theme="b" data-role="collapsible" data-theme="a">
+                		<h3>Week 1</h3>
+             			<p>These are ideas and concepts for my video game review app.  I went through the list of supported API's and decided on the ones that I felt would best fit my app and the intent of my app.  As each is implimented there will either be an example posted inside of the collapsible object or a link to show where it is.</p>
+             			<div data-role="collapsible-set" data-theme="a">
+                			<div data-content-theme="b" data-role="collapsible">
+                            	<h3>Storage</h3>
+                            	<p>I would like to use this API in order to store information rather than pull it fresh from the server every startup.  Incase there is an issue with internet connection the app will still function and give information until it is next connected and updated.</p>
+                        	</div>
+                        	<div data-content-theme="b" data-role="collapsible">
+                            	<h3>Geolocation</h3>
+                            	<p>Having this be a two part API in a sense where the phone will pull geolocation and date / time it will allow me to impliment date, time and location of the newly added entry's into my app</p>
+                        	</div>
+                        	<div data-content-theme="b" data-role="collapsible">
+                          		<h3>In App Browser</h3>
+                           		<p>This functionality would be very useful because if there is a game that you would like to purchase because you enjoyed the review on it I could add some icons on the bottom of each review and have the site send the user to there chosen site. i.e. gamestop or amazon.  This could all be done in app.</p>
+                        	</div>
+                        	<div data-content-theme="b" data-role="collapsible">
+                            	<h3>Notification</h3>
+                            	<p>This is highly important, so as a user you want to be up on the latest and greatest.  This function will allow you to keep up to date minute by minute if a new review is posted you will know about it because your device will send you a push notification.</p>
+                        	</div>
+                        	<div data-content-theme="b" data-role="collapsible">
+                            	<h3>Contacts</h3>
+                            	<p>This API would be great because there is always some sort of share option.  You could share it through your phones contacts and it could help spread the app.</p>
+                        	</div>
+                    	</div>
+                    </div>
+                    <!-- Week 2 -->
+                    <div data-role="collapsible" data-theme="a">
+                    	<h3>Week 2</h3>
+                    	<div class="ui-grid-a">
+                        	<div class="ui-block-a" style="width:200px"><a href="#instagram"><button type="submit" data-theme="a">Instagram API</button></a></div>
+                        	<div class="ui-block-b" style="width:200px"><a href="#flickr"><button type="submit" data-theme="a">Flickr API</button></a></div>
+                    	</div>
+                	</div>
+                </div>
+             </div>
+             <div data-role="footer" data-position="fixed" data-id="nav">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home"><img style="height:32px; width:32px" src="img/home-icon.png" /><br />Home</a></li>
+						<li><a href="#instagram"><img style="height:32px; width:32px" src="img/instagram-icon.png" /><br />Instagram</a></li>
+						<li><a href="#flickr"><img style="height:32px; width:32px" src="img/flickr-icon.png" /><br />Flickr</a></li>
+						<li><a href="#research"><img style="height:32px; width:32px" src="img/pen_paper_icon.PNG" /><br />Research</a></li>
+					</ul>
+				</div>
+        	</div>
+        </div>
+        <div data-role="page" id="instagram" data-theme="a">
+        	<div data-role="header" data-position="fixed">
+            	<h1>Instagram API</h1>
+            </div>
+            <div data-role="content">
+            	<div id="photos">
+                </div>
+                <div id="instaRefresh"><button>Refresh</button></div>
+            </div>
+            <div data-role="footer" data-position="fixed" data-id="nav">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home"><img style="height:32px; width:32px" src="img/home-icon.png" /><br />Home</a></li>
+						<li><a href="#instagram"><img style="height:32px; width:32px" src="img/instagram-icon.png" /><br />Instagram</a></li>
+						<li><a href="#flickr"><img style="height:32px; width:32px" src="img/flickr-icon.png" /><br />Flickr</a></li>
+						<li><a href="#research"><img style="height:32px; width:32px" src="img/pen_paper_icon.PNG" /><br />Research</a></li>
+					</ul>
+				</div>
+        	</div>
+        </div>
+        <div data-role="page" id="flickr" data-theme="a">
+        	<div data-role="header" data-position="fixed">
+            	<h1>Flickr API</h1>
+            </div>
+            <div data-role="content">
+            	<div id="flickrPhotos">
+                </div>
+                <div id="flickrRefresh"><button>Refresh</button></div>
+            </div>
+            <div data-role="footer" data-position="fixed" data-id="nav">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home"><img style="height:32px; width:32px" src="img/home-icon.png" /><br />Home</a></li>
+						<li><a href="#instagram"><img style="height:32px; width:32px" src="img/instagram-icon.png" /><br />Instagram</a></li>
+						<li><a href="#flickr"><img style="height:32px; width:32px" src="img/flickr-icon.png" /><br />Flickr</a></li>
+						<li><a href="#research"><img style="height:32px; width:32px" src="img/pen_paper_icon.PNG" /><br />Research</a></li>
+					</ul>
+				</div>
+        	</div>
+        </div>
+        <div data-role="page" id="research" data-theme="a">
+        	<div data-role="header" data-position="fixed">
+            	<h1>Research</h1>
+            </div>
+            <div data-role="content">
+            	<div data-role="collapsible-set">
+                	<div data-content-theme="b" data-role="collapsible">
+                    	<h3>Week 2 Discussion Post</h3>
+                        <p>Using twitter for login and payment methods would make a person feel more at ease especially if in order to login to twitter it switched to the twitter app for verification and if only the required code from twitter was given to said app.  This is used in a similar manor in a lot of apps now.  Many of the games that are free to play on Android and iOS allow for market transactions.  The way this is done is when you are ready to purchase something in the market the app goes into the background and brings up the market app for purchasing the product once completed the store sends verification back to the app that the transaction is completed successfully and you receive your product.  So long as the end result is that the app is not forcing you to put your information into itself, many people will trust this system a lot more because it is a new application.</p>
+ 
+<p>JSON-P is used for cross-domain reference.  Say for instance you want to access data on a site if the site is JSON-P enabled then it will have a reference to this capability you would then input the reference into the address bar and give it a name.  The site will then understand your request and send back a JSON object which you can use a simple code to restructure into whatever you need it for.  This could be used to make a list of items of all kinds from a library resource to connecting to a bank site to pull recent transactions.</p>
+ 
+<p>Flicker API could be used with the photo album to upload and download pictures into folders on the device or you could use the service as a photo cloud so that your pictures were always backed up.</p>
+ 
+<p>I am looking forward to being able to hook up to the web to pull information from domains and utilize it in an application as well as being able to use the devices native features.  For this I want to see a few things come from my app.  Such as the ability to cross communicate from a domain into the app and then separate data accordingly into a calendar, media library, and notifications.  Because pop-up notifications can be really irritating this will be secondary or just not used at all instead I will utilize messages displayed and created on the page dynamically.</p>
+<p>Personally I have learned a lot about doing research on my assignments because I do enjoy programming I try to make my app’s do more than they are asked to do and with the aid of research can generally accomplish this goal.  However it can be extremely costly when it comes to time.  A few projects have taken me 60+ hours in a week to complete but the end result has always paid off in my opinion.</p>
+                    </div>
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed" data-id="nav">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home"><img style="height:32px; width:32px" src="img/home-icon.png" /><br />Home</a></li>
+						<li><a href="#instagram"><img style="height:32px; width:32px" src="img/instagram-icon.png" /><br />Instagram</a></li>
+						<li><a href="#flickr"><img style="height:32px; width:32px" src="img/flickr-icon.png" /><br />Flickr</a></li>
+						<li><a href="#research"><img style="height:32px; width:32px" src="img/pen_paper_icon.PNG" /><br />Research</a></li>
+					</ul>
+				</div>
+        	</div>
+        </div>        
+        <!-- For use when I have internet at home -->
+        <script src="cordova.js"></script>
+        <script src="js/libs/modernizr.custom.min.js"></script>
+		<script type="text/javascript" src="js/storage.js"></script>
+        <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
+		<script src="js/libs/jquery.validate.min.js"></script>
+		<script type="text/javascript" src="js/json.js"></script>
+		<script type="text/javascript" src="js/Main.js"></script>
+    </body>
+>>>>>>> master
 </html>
