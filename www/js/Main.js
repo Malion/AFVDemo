@@ -15,7 +15,7 @@ $(document).ready(function() {
 							var name = data.data[i].comments.data[n].from.full_name;
 							console.log(JSON.stringify(picture))
 							console.log(JSON.stringify(name))
-							html += "<li><fieldset class='ui-grid-a'><div class='ui-block-a'><img src='" + picture + "' /><br />" + name + "</div><div class='ui-block-b'><p>" + data.data[i].comments[1][n].text + "</p></div></fieldset></li>";
+							html += "<li><fieldset class='ui-grid-a'><div class='ui-block-a'><img src='" + picture + "' /><br />" + name + "</div><div class='ui-block-b'><p>" + data.data[i].comments.data[n].text + "</p></div></fieldset></li>";
 						}
 						html += '</ol></div></fieldset>';
 					}
