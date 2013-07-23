@@ -17,7 +17,7 @@ $(document).ready(function() {
 							console.log(JSON.stringify(picture))
 							console.log(JSON.stringify(name))
 							console.log(JSON.stringify(comments))
-							html += "<li><fieldset class='ui-grid-a'><div class='ui-block-a'><img src='" + JSON.stringify(picture) + "' /><br />" + JSON.stringify(name) + "</div><div class='ui-block-b'><p>" + JSON.stringify(comments) + "</p></div></fieldset></li>";
+							html += "<li><fieldset class='ui-grid-a'><div class='ui-block-a'><img src='" + picture + "' /><br />" + JSON.stringify(name) + "</div><div class='ui-block-b'><p>" + JSON.stringify(comments) + "</p></div></fieldset></li>";
 						}
 						html += '</ol></div></fieldset>';
 					}
