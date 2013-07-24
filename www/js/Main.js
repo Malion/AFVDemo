@@ -1,42 +1,79 @@
-$(document).ready(function() {
-	$("#instagram").on('pageinit',function(){
-		$(function() {
-			$.ajax({
-				type: "GET",
-				dataType: "jsonp",
-				cache: false,
-				url: "https://api.instagram.com/v1/media/popular?client_id=1003d9b3eaf04af8b8a649fd90936a32",
-				success: function(data) {
-					html = '';
-					for (var i=0; i<1; i++) {
-						html += "<fieldset class='ui-grid-a'><div class='ui-block-a' style='height:256px'><fieldset class='ui-grid-a'><div class='ui-block-a'><a target='_blank' href='" + data.data[i].link +"'><img src='" + data.data[i].images.thumbnail.url +"' /></a><br /><p>" + data.data[i].caption.text + "</p></div><div class='ui-block-b'><p>Posted By:</p><img src='" + data.data[i].user.profile_picture + "' /><br /><p>" + JSON.stringify(data.data[i].user.full_name) + "</p></div></fieldset></div><div class='ui-block-b' data-scroll='true' style='height:256px'><p>Comments</p>";
-						for(var n=0; n<data.data[i].comments.data.length; n++){
-							var picture = data.data[i].comments.data[n].from.profile_picture;
-							var name = data.data[i].comments.data[n].from.full_name;
-							var comments = data.data[i].comments.data[n].text;
-							console.log(JSON.stringify(picture))
-							console.log(JSON.stringify(name))
-							console.log(JSON.stringify(comments))
-							html += "<fieldset class='ui-grid-a'><div class='ui-block-a'><img style='width:64px; height:64px' src='" + picture + "' /><br />" + JSON.stringify(name) + "</div><div class='ui-block-b'><p>" + JSON.stringify(comments) + "</p></div></fieldset>";
-						}
-						html += '</div></fieldset>';
-					}
-					$('#photos').html(html)
+//Instagram Page Load
+$("#instagram").on("pageinit", function(){
+	//Get Instagram popular photos
+	$.ajax({
+		type: "GET",
+		dataType: "jsonp",
+		cache: false,
+		url: "https://api.instagram.com/v1/media/popular?client_id=1003d9b3eaf04af8b8a649fd90936a32",
+		success: function(data) {
+			//Variable for maximum height of pop-up window
+			var maxHeight = $(window).height() - 60 + "px";
+			//empty string for html injection
+			html = '';
+			page = '';
+			//Loop for 
+			for (var i=0; i<10; i++) {
+				if(i%2 == 0){
+					html += '<li>';
+					html += '<a href="#'+data.data[i].id+'" data-rel="dialog" data-transition="pop">';
+					html += '<img src="'+data.data[i].user.profile_picture+'" />';
+					html += '<h3>Posted By: '+JSON.stringify(data.data[i].user.full_name)+'</h3>';
+					html += '<p>Caption: '+JSON.stringify(data.data[i].caption.text)+'</p>';
+					html += '</a>';
+					html += '<a href="'+data.data[i].link+'"></a>';
+					html += '</li>';
+				} else {
+					html += '<li data-theme="b">';
+					html += '<a href="#'+data.data[i].id+'" data-rel="dialog" data-transition="pop">';
+					html += '<img src="'+data.data[i].user.profile_picture+'" />';
+					html += '<h3>Posted By: '+JSON.stringify(data.data[i].user.full_name)+'</h3>';
+					html += '<p>Caption: '+JSON.stringify(data.data[i].caption.text)+'</p>';
+					html += '</a>';
+					html += '<a href="'+data.data[i].link+'"></a>';
+					html += '</li>';
 				}
-			});
-		});
-		$('#instaRefresh').on('click', function(){window.location.reload(true)})
-	});
-	$("#flickr").on('pageinit', function(){
-		$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",{
-			tagmode: "any",
-			format: "json"
-	  	},
-	  	function(data) {
-			for(var i=0; i<10; i++){
-				$('#flickrPhotos').append("<a target='_blank' href='" + data.items[i].link +"'><img style='padding:5px' src='" + data.items[i].media.m +"' /></a>");
+				page += '<div data-role="page" id="'+data.data[i].id+'" class="photopopup" data-theme="a">';
+				page += '<div data-role="header" data-position="fixed"><h1>Comments</h1></div>';
+				page += '<div data-role="content">';
+				page += '<img style="max-height:'+maxHeight+'" src="'+data.data[i].images.standard_resolution.url+'" />';
+				page += '<ul data-role="listview">';
+				$.each(data.data[i].comments.data, function(k, n){
+					if(k%2 == 0){
+						page += '<li>';
+						page += '<a href="'+data.data[i].link+'">';
+						page += '<img src="'+n.from.profile_picture+'" />';
+						page += '</a>';
+						page += '<h3>'+JSON.stringify(n.from.full_name)+'</h3>';
+						page += '<p>'+n.text+'</p>';
+						page += '</li>';
+					} else {
+						page += '<li data-theme="b">';
+						page += '<a href="'+data.data[i].link+'">';
+						page += '<img src="'+n.from.profile_picture+'" />';
+						page += '</a>';
+						page += '<h3>'+JSON.stringify(n.from.full_name)+'</h3>';
+						page += '<p>'+n.text+'</p>';
+						page += '</li>';
+					}
+				})
+				page += '</ul></div></div>';
 			}
-	    });
-		$('#flickrRefresh').on('click', function(){window.location.reload(true)})
-	})
+			$('#photos').append(html)
+			$('#mainbody').append(page)
+			$('#photos').listview('refresh');
+		}
+	});
 });
+$("#flickr").on('pageinit', function(){
+	$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",{
+		tagmode: "any",
+		format: "json"
+	},
+	function(data) {
+		for(var i=0; i<10; i++){
+			$('#flickrPhotos').append("<a target='_blank' href='" + data.items[i].link +"'><img style='padding:5px' src='" + data.items[i].media.m +"' /></a>");
+		}
+	});
+	$('#flickrRefresh').on('click', function(){window.location.reload(true)})
+})
