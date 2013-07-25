@@ -22,7 +22,8 @@
             	<h1>Advanced Visual Framwork API Deployment</h1>
              </div>
              <div data-role="content">
-             	<p>Welcome to my demo app where I show off the use of a few API's and Native features to </p>
+             	<p>Welcome to my demo app where I show off the use of a few API's and Native features.  This version is for iOS systems.  For the Android version please visit the following page.</p>
+                <a href="http://malion.github.io/AVFAndroidDemo/assets/www/"><img alt="Android Robot" src="img/Android_robot.png" height="124px" width="100px" /></a>
              	<div data-role="collapsible-set" data-theme="a">
              		<div data-content-theme="b" data-role="collapsible" data-theme="a">
                 		<h3>Week 1</h3>
@@ -55,6 +56,11 @@
                     	<h3>Week 2</h3>
                     	
                 	</div>
+                </div>
+                <div>
+                	<a href="#camera">Camera</a>
+                    <br />
+                    <a href="#geo">Geolocation</a>
                 </div>
              </div>
              <div data-role="footer" data-position="fixed" data-id="nav">
@@ -136,7 +142,45 @@
 					</ul>
 				</div>
         	</div>
-        </div>    
+        </div>
+        <div data-role="page" id="camera" data-theme="a">
+        	<div data-role="header" data-position="fixed">
+            	<h1>Camera</h1>
+            </div>
+            <div data-role="content">
+            	<div data-role="listview" data-inset="true">
+					<img id="cameraImage" style="height:auto; width:100%" />
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed" data-id="nav">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home"><img alt="Home" style="height:32px; width:32px" src="img/home-icon.png" /><br />Home</a></li>
+						<li><a href="#instagram"><img alt="Instagram" style="height:32px; width:32px" src="img/instagram-icon.png" /><br />Instagram</a></li>
+						<li><a href="#flickr"><img alt="Flickr" style="height:32px; width:32px" src="img/flickr-icon.png" /><br />Flickr</a></li>
+						<li><a href="#research"><img alt="Research" style="height:32px; width:32px" src="img/pen_paper_icon.PNG" /><br />Research</a></li>
+					</ul>
+				</div>
+        	</div>
+        </div>
+         <div data-role="page" id="geo" data-theme="a">
+        	<div data-role="header" data-position="fixed">
+            	<h1>Geolocation</h1>
+            </div>
+            <div data-role="content">
+            <button id="geobtn">Geolocation</button>
+            </div>
+            <div data-role="footer" data-position="fixed" data-id="nav">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home"><img alt="Home" style="height:32px; width:32px" src="img/home-icon.png" /><br />Home</a></li>
+						<li><a href="#instagram"><img alt="Instagram" style="height:32px; width:32px" src="img/instagram-icon.png" /><br />Instagram</a></li>
+						<li><a href="#flickr"><img alt="Flickr" style="height:32px; width:32px" src="img/flickr-icon.png" /><br />Flickr</a></li>
+						<li><a href="#research"><img alt="Research" style="height:32px; width:32px" src="img/pen_paper_icon.PNG" /><br />Research</a></li>
+					</ul>
+				</div>
+        	</div>
+        </div>
         <!-- For use when I have internet at home -->
         <script src="cordova.js"></script>
         <script src="js/libs/modernizr.custom.min.js"></script>
