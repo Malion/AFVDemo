@@ -13,7 +13,7 @@ $("#instagram").on("pageinit", function(){
 			html = '';
 			page = '';
 			//Loop for 
-			for (var i=0; i<10; i++) {
+			for (var i=0; i<data.data.length; i++) {
 				if(i%2 == 0){
 					html += '<li>';
 					html += '<a href="#'+data.data[i].id+'" data-rel="dialog" data-transition="pop">';
@@ -21,7 +21,7 @@ $("#instagram").on("pageinit", function(){
 					html += '<h3>Posted By: '+JSON.stringify(data.data[i].user.full_name)+'</h3>';
 					html += '<p>Caption: '+JSON.stringify(data.data[i].caption.text)+'</p>';
 					html += '</a>';
-					html += '<a href="'+data.data[i].link+'"></a>';
+					html += '<a href="#'+data.data[i].id+'iframe"></a>';
 					html += '</li>';
 				} else {
 					html += '<li data-theme="b">';
