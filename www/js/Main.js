@@ -77,35 +77,25 @@ $("#flickr").on('pageinit', function(){
 	});
 	$('#flickrRefresh').on('click', function(){window.location.reload(true)})
 })
-$(document).on('pageinit', '#camera', function(){
-		navigator.camera.getPicture(success, fail, { quality: 50,destinationType: Camera.DestinationType.DATA_URL});
-		function success(data) {
-    		var image = document.getElementById('cameraImage');
-    		image.src = "data:image/jpeg;base64," + data;
-		}
-		function fail(data) {
-    		alert('Taking a picture failed because: ' + data);
-		}
-})
-$('#geobtn').on('click', function(){
-	var onSuccess = function(position) {
-	    alert('Latitude: '          + position.coords.latitude          + '\n' +
-	          'Longitude: '         + position.coords.longitude         + '\n' +
-	          'Altitude: '          + position.coords.altitude          + '\n' +
-	          'Accuracy: '          + position.coords.accuracy          + '\n' +
-	          'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
-	          'Heading: '           + position.coords.heading           + '\n' +
-	          'Speed: '             + position.coords.speed             + '\n' +
-	          'Timestamp: '         + position.timestamp                + '\n');
-		};
-
-		// onError Callback receives a PositionError object
-
-		function onError(error) {
-    		alert('code: '    + error.code    + '\n' +
-         	 	'message: ' + error.message + '\n');
-		}
-
-		navigator.geolocation.getCurrentPosition(onSuccess, onError, {maximumAge: 3000,
-			timeout: 5000, enableHighAccuracy: true});
+$('#conbtn').on('click', function(){
+	function checkConnection() {
+		var networkState = navigator.connection.type;
+		var states = {};
+		states[Connection.UNKNOWN]  = 'Unknown connection';
+		states[Connection.ETHERNET] = 'Ethernet connection';
+		states[Connection.WIFI]     = 'WiFi connection';
+		states[Connection.CELL]     = 'Cell generic connection';
+		states[Connection.NONE]     = 'No network connection';
+		alert('Connection type: ' + states[networkState]);
+	}
+	checkConnection();
+});
+$('#compbtn').on('click', function(){
+	function onSuccess(heading) {
+		alert('Heading: ' + heading.magneticHeading);
+	};
+	function onError(error) {
+		alert('CompassError: ' + error.code);
+	};
+	navigator.compass.getCurrentHeading(onSuccess, onError);
 })
