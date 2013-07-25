@@ -112,5 +112,7 @@
     </feature>
     <!-- Deprecated plugins element. REmove in 3.0 -->
     <plugins>
+		<plugin name="Camera" value="CDVCamera" />
+		<pluging name="Geolocation" value="CDVLocation" />
     </plugins>
 </widget>

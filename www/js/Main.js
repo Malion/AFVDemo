@@ -42,7 +42,7 @@ $("#instagram").on("pageinit", function(){
 					if(k%2 == 0){
 						page += '<li>';
 						page += '<a href="'+data.data[i].link+'">';
-						page += '<img src="'+n.from.profile_picture+'" />';
+						page += '<img width:100% height:auto style="margin-left:auto; margin-right:auto" src="'+n.from.profile_picture+'" />';
 						page += '</a>';
 						page += '<h3>'+JSON.stringify(n.from.full_name)+'</h3>';
 						page += '<p>'+n.text+'</p>';
@@ -76,4 +76,36 @@ $("#flickr").on('pageinit', function(){
 		}
 	});
 	$('#flickrRefresh').on('click', function(){window.location.reload(true)})
+})
+$(document).on('pageinit', '#camera', function(){
+		navigator.camera.getPicture(success, fail, { quality: 50,destinationType: Camera.DestinationType.DATA_URL});
+		function success(data) {
+    		var image = document.getElementById('cameraImage');
+    		image.src = "data:image/jpeg;base64," + data;
+		}
+		function fail(data) {
+    		alert('Taking a picture failed because: ' + data);
+		}
+})
+$('#geobtn').on('click', function(){
+	var onSuccess = function(position) {
+	    alert('Latitude: '          + position.coords.latitude          + '\n' +
+	          'Longitude: '         + position.coords.longitude         + '\n' +
+	          'Altitude: '          + position.coords.altitude          + '\n' +
+	          'Accuracy: '          + position.coords.accuracy          + '\n' +
+	          'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+	          'Heading: '           + position.coords.heading           + '\n' +
+	          'Speed: '             + position.coords.speed             + '\n' +
+	          'Timestamp: '         + position.timestamp                + '\n');
+		};
+
+		// onError Callback receives a PositionError object
+
+		function onError(error) {
+    		alert('code: '    + error.code    + '\n' +
+         	 	'message: ' + error.message + '\n');
+		}
+
+		navigator.geolocation.getCurrentPosition(onSuccess, onError, {maximumAge: 3000,
+			timeout: 5000, enableHighAccuracy: true});
 })
