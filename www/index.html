@@ -59,7 +59,9 @@
                 </div>
                 <div>
                 	<ul data-role="listview" data-inset="true">
-                        <li><a href="#connection"><h3>Connection Type</h3></a></li>
+                        <li><a href="#camera"><h3>Camera</h3></a></li>
+                        <li><a href="#geo"><h3>Geolocation</h3></a></li>
+						<li><a href="#connection"><h3>Connection Type</h3></a></li>
                         <li><a href="#compass"><h3>Compass</h3></a></li>
                     </ul>
                 </div>
@@ -168,6 +170,42 @@
             </div>
             <div data-role="content">
             	<button id="compbtn">Check Compass</button>
+            </div>
+            <div data-role="footer" data-position="fixed" data-id="nav">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home"><img alt="Home" style="height:32px; width:32px" src="img/home-icon.png" /><br />Home</a></li>
+						<li><a href="#instagram"><img alt="Instagram" style="height:32px; width:32px" src="img/instagram-icon.png" /><br />Instagram</a></li>
+						<li><a href="#flickr"><img alt="Flickr" style="height:32px; width:32px" src="img/flickr-icon.png" /><br />Flickr</a></li>
+						<li><a href="#research"><img alt="Research" style="height:32px; width:32px" src="img/pen_paper_icon.PNG" /><br />Research</a></li>
+					</ul>
+				</div>
+        	</div>
+        </div>
+		<div data-role="page" id="camera" data-theme="a">
+        	<div data-role="header" data-position="fixed">
+            	<h1>Camera</h1>
+            </div>
+            <div data-role="content">
+            	<img id="cameraImage" style="height:auto; width:100%" />
+            </div>
+            <div data-role="footer" data-position="fixed" data-id="nav">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home"><img alt="Home" style="height:32px; width:32px" src="img/home-icon.png" /><br />Home</a></li>
+						<li><a href="#instagram"><img alt="Instagram" style="height:32px; width:32px" src="img/instagram-icon.png" /><br />Instagram</a></li>
+						<li><a href="#flickr"><img alt="Flickr" style="height:32px; width:32px" src="img/flickr-icon.png" /><br />Flickr</a></li>
+						<li><a href="#research"><img alt="Research" style="height:32px; width:32px" src="img/pen_paper_icon.PNG" /><br />Research</a></li>
+					</ul>
+				</div>
+        	</div>
+        </div>
+		<div data-role="page" id="geo" data-theme="a">
+        	<div data-role="header" data-position="fixed">
+            	<h1>Geolocation</h1>
+            </div>
+            <div data-role="content">
+            <button id="geobtn">Geolocation</button>
             </div>
             <div data-role="footer" data-position="fixed" data-id="nav">
 				<div data-role="navbar">
